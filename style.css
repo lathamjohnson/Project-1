@@ -1,0 +1,50 @@
+h1{
+    font-size:50px;
+    display: block;
+    text-align: center;
+    margin: 50px 0 50px 0;
+}
+
+#newGame{
+    height: 50px;
+    width: 150px;
+    background-color: goldenrod;
+    font-size: 15px;
+    display:block;
+    margin: 0 auto 100px auto;
+
+}
+.board{
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto
+}
+.pad{
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+}
+
+#pad1{
+    background-color: green;
+}
+
+#pad2{
+    background-color: red;
+}
+
+#pad3{
+    background-color: yellow;
+}
+
+#pad4{
+    background-color: blue;
+}
+
+.on{
+    box-shadow:
+    0 0 60px 30px #fff,  /* inner white */
+    0 0 100px 60px #f0f, /* middle magenta */
+    0 0 140px 90px #0ff; /* outer cyan */
+}
