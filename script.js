@@ -4,33 +4,73 @@ var pad = document.querySelectorAll('.pad')
 // var pad3 = document.querySelector('#pad3')
 // var pad4 = document.querySelector('#pad4')
 const newGame = document.querySelector('#newGame')
+var counter = 3
 
-newGame.addEventListener('click', startSequence)
+function recordPadsInterval(callback, delay, reps){
+    console.log('function called')
+    var L = 0
+    var interval = setInterval(function(){
+                recordPadsInterval()
+                if(L === reps){clearInterval(interval)}
+    }, delay)
+}
+
+// recordPadsInterval(function(){
+//     const n = Math.floor((Math.random() * 4) + 1)
+//     const pad = document.querySelector(`#pad${n}`)
+//     const activate = (p) => p.classList.add('on')
+//     activate(pad)
+//     const deactivate = (p) => p.classList.remove('on')
+//     setTimeout(deactivate, 1000, pad)
+//     console.log(pad.id)
+// }, 1000, 5)
+
+
+newGame.addEventListener('click', 
+recordPadsInterval(function(){
+    const n = Math.floor((Math.random() * 4) + 1)
+    const pad = document.querySelector(`#pad${n}`)
+    const activate = (p) => p.classList.add('on')
+    activate(pad)
+    const deactivate = (p) => p.classList.remove('on')
+    setTimeout(deactivate, 1000, pad)
+}, 1000, 5)
+)
 
 //Sequence handler function
 //Calls the pad recorder function at a certain speed/time
 //May require recursion to clearInterval once recording is done
+
 function startSequence(){
-    setInterval(recordPad, 2000)
+    interval = setInterval(recordPad, 1000)
 }
 
 //Hits random pads for a certain interval, records pads as it goes
 //Uses recursion to clearInterval once 
-function recordPad(){
-    const n = Math.floor((Math.random() * 4) + 1)
-    const pad = document.querySelector(`#pad${n}`)
+// l, s=''
+function recordPad(l=5, s=''){
+    // const n = Math.floor((Math.random() * 4) + 1)
+    // const pad = document.querySelector(`#pad${n}`)
     console.log(pad.id)
-    
-    const activate = (p) => p.classList.add('on')
-    activate(pad)
+    // const activate = (p) => p.classList.add('on')
+    // activate(pad)
+    // const deactivate = (p) => p.classList.remove('on')
+    // setTimeout(deactivate, 1000, pad)
 
-    const deactivate = (p) => p.classList.remove('on')
-    setTimeout(deactivate, 1000, pad)
+    // clearInterval(interval)
 
+    s += pad.id.charAt(3)
+    l--
+    console.log(s)
+    console.log(l)
 
+    // recordPad(l, s)
     //Pass the recorded pad sequence into "pad check" function
 }
 
+function stop(){
+    clearInterval()
+}
 //Pad Check Function
 //Is called each time the player hits a pad
 //Takes the value of the correct pad sequence, checks against it every time player hits a pad
