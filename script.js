@@ -1,35 +1,98 @@
 var pad = document.querySelectorAll('.pad')
-// var pad1 = document.querySelector('#pad1')
-// var pad2 = document.querySelector('#pad2')
-// var pad3 = document.querySelector('#pad3')
-// var pad4 = document.querySelector('#pad4')
 const newGame = document.querySelector('#newGame')
+
+var currentSequence = setInterval(recordPad, 1000, 0)
+clearInterval(currentSequence)
+
+var level = 3
+var playerMove = 0
+var playerString = ''
+var computerMove = 0
+var computerString = ''
+var recording
+
+pad.forEach(p => {
+    p.addEventListener('click', scorePlayer)
+    p.addEventListener('click', animate)
+})
 
 newGame.addEventListener('click', startSequence)
 
-//Sequence handler function
-//Calls the pad recorder function at a certain speed/time
-//May require recursion to clearInterval once recording is done
 function startSequence(){
-    setInterval(recordPad, 2000)
+    currentSequence = setInterval(recordPad, 1500)
 }
 
-//Hits random pads for a certain interval, records pads as it goes
-//Uses recursion to clearInterval once 
+function animate(pad){
+    const activate = (p) => p.classList.add('on')
+    const deactivate = (p) => p.classList.remove('on')
+    if(pad.isTrusted && recording == false){
+    console.log(pad)
+    activate(pad.toElement)
+    setTimeout(deactivate, 200, pad.toElement)       
+    }
+    else{
+    activate(pad)
+    setTimeout(deactivate, 1000, pad)
+    }
+}
+
+function setStatus(message){
+    document.querySelector('#status').innerHTML = message
+}
+
+function scorePlayer(e){
+    if(recording){return}
+    else{
+    playerString += e.toElement.id.charAt(3)
+    if(playerString.charAt(playerMove) !== computerString.charAt(playerMove)){
+        setStatus('Thats not what simon said...')
+        setTimeout(setStatus, 1500, 'Click above to start a new game')
+        reset(3)
+    }
+    else if(playerString === computerString){
+        setStatus('Correct! Next level...')
+        reset()
+        level ++
+        setTimeout(setStatus, 1000, `Level: ${level - 2}` )
+        // console.log(`Level: ${level}`)
+        // console.log(`Computer: ${computerString}, ${computerMove}`)
+        // console.log(`Player: ${playerString}, ${playerMove}`)
+        startSequence()
+    }
+    else{
+    playerMove ++
+    console.log(playerString)
+    }
+}
+}
+
 function recordPad(){
+    if(computerMove==level){
+        clearInterval(currentSequence)
+        recording = false
+        setTimeout(setStatus, 500, `Repeat it!`)
+        console.log(computerString)
+    }
+    else{
+    recording = true
+    setStatus('Listen...')
     const n = Math.floor((Math.random() * 4) + 1)
     const pad = document.querySelector(`#pad${n}`)
     console.log(pad.id)
-    
-    const activate = (p) => p.classList.add('on')
-    activate(pad)
-
-    const deactivate = (p) => p.classList.remove('on')
-    setTimeout(deactivate, 1000, pad)
-
-
-    //Pass the recorded pad sequence into "pad check" function
+    animate(pad)
+    computerString += pad.id.charAt(3)
+    computerMove ++
+    }
 }
+
+function reset(l=level){
+    playerMove = 0
+    playerString = ''
+    computerMove = 0
+    computerString = ''
+    level = l
+}
+
 
 //Pad Check Function
 //Is called each time the player hits a pad

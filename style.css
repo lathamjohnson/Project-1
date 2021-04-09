@@ -1,3 +1,6 @@
+html{
+    font-family: arial;
+}
 h1{
     font-size:50px;
     display: block;
@@ -23,7 +26,8 @@ h1{
 .pad{
     height: 200px;
     width: 200px;
-    border-radius: 100px;
+    border-radius: 125px;
+    border:5px solid black;
 }
 
 #pad1{
@@ -44,7 +48,16 @@ h1{
 
 .on{
     box-shadow:
-    0 0 60px 30px #fff,  /* inner white */
-    0 0 100px 60px #f0f, /* middle magenta */
-    0 0 140px 90px #0ff; /* outer cyan */
+    0 0 10px 10px rgb(0, 0, 0),
+    0 0 10px 10px rgb(134, 133, 134),
+    0 0 10px 10px rgb(246, 247, 247);
+}
+
+.info{
+    display:flex;  
+    justify-content: center;
+}
+
+#status{
+    font-size: 40px;
 }
