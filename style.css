@@ -1,41 +1,49 @@
 html{
-    font-family: arial;
+    font-family: 'Londrina Solid', cursive;
 }
 h1{
-    font-size:50px;
+    letter-spacing: 3px;
+    font-size:80px;
     display: block;
     text-align: center;
-    margin: 60px 0 40px 0;
+    margin: 30px 0 40px 0;
 }
 
 #newGame{
+    font-family: 'Londrina Solid', cursive;
     height: 50px;
     width: 150px;
     background-color: goldenrod;
-    font-size: 15px;
+    border-radius: 25px;;
+    outline-style: hidden;
+    font-size: 20px;
     display:block;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 60px auto;
 }
 
 #levelCount{
     display: block;
     position: absolute;
-    font-size: 30px;
+    font-size: 35px;
     top:0;
     right:20px;
 }
 
 .board{
-    width:100%;
+    width: 500px;
+    height: 500px;
     display: flex;
-    justify-content: space-around;
-    margin: 0 auto
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    align-content: space-evenly;
 }
 .pad{
     height: 200px;
     width: 200px;
-    border-radius: 125px;
-    border:5px solid black;
+    border: 5px solid black;
+    border-radius: 50px;
+    margin: 10px;
 }
 
 #pad1{
@@ -63,9 +71,9 @@ h1{
 
 .wrong{
     box-shadow:
-    0 0 15px 15px rgb(200, 1, 1),
-    0 0 15px 15px rgb(211, 63, 63),
-    0 0 15px 15px rgb(233, 180, 180);
+    0 0 20px 20px rgb(200, 1, 1),
+    0 0 20px 20px rgb(209, 53, 53),
+    0 0 20px 20px rgb(212, 80, 80);
 }
 
 .info{
@@ -74,5 +82,5 @@ h1{
 }
 
 #status{
-    font-size: 40px;
+    font-size: 45px;
 }
