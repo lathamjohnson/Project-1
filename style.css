@@ -1,24 +1,75 @@
 html{
     font-family: 'Londrina Solid', cursive;
+    background-color: cornsilk;
 }
 h1{
-    letter-spacing: 3px;
-    font-size:80px;
+    letter-spacing: 40px;
+    font-size: 120px;
     display: block;
     text-align: center;
-    margin: 30px 0 40px 0;
+    margin: 10px 0 10px 40px;
+}
+
+#slideout{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: 0 0 35px 0;
 }
 
 #newGame{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
     font-family: 'Londrina Solid', cursive;
+    background-color: #fff8dc ;
+    outline: none;
     height: 50px;
-    width: 150px;
-    background-color: goldenrod;
-    border-radius: 25px;;
-    outline-style: hidden;
+    border-radius: 10px;
     font-size: 20px;
-    display:block;
-    margin: 0 auto 60px auto;
+    transition: width 0.3s;
+}
+
+#difficulty{
+   max-width:0;
+   white-space: nowrap;
+   overflow: hidden;
+   transition: max-width 1.5s;
+}
+
+#difficulty a{
+    letter-spacing: 2px;
+    margin: 2px;
+    font-size:24px;
+    font-weight:bold;
+    -webkit-text-stroke: 0.8px black;
+}
+
+#game{
+    font-size:25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 5px;
+}
+
+#easy{
+    color:green;
+}
+
+#medium{
+    color:orange;
+}
+
+
+#hard{
+    color:red;
+}
+
+#slideout:hover #difficulty {
+    max-width:300px;
+    color:black;
 }
 
 #levelCount{
@@ -29,52 +80,35 @@ h1{
     right:20px;
 }
 
+.highScore{
+    display: block;
+    position: absolute;
+    font-size: 25px;
+    text-align: center;
+    top:0;
+    left:20px;
+}
+
+#score{
+    top: 30px;
+    left: 60px;
+}
+
 .board{
     width: 500px;
     height: 500px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
+    background-color:#DFD9C1;
     margin: 0 auto;
     align-content: space-evenly;
-}
-.pad{
-    height: 200px;
-    width: 200px;
-    border: 5px solid black;
+    padding: 30px;
+    border: 3px solid black;
     border-radius: 50px;
-    margin: 10px;
+    box-shadow: 20px 20px 20px #BFBAA5;
 }
 
-#pad1{
-    background-color: green;
-}
-
-#pad2{
-    background-color: red;
-}
-
-#pad3{
-    background-color: yellow;
-}
-
-#pad4{
-    background-color: blue;
-}
-
-.on{
-    box-shadow:
-    0 0 10px 10px rgb(0, 0, 0),
-    0 0 10px 10px rgb(134, 133, 134),
-    0 0 10px 10px rgb(246, 247, 247);
-}
-
-.wrong{
-    box-shadow:
-    0 0 20px 20px rgb(200, 1, 1),
-    0 0 20px 20px rgb(209, 53, 53),
-    0 0 20px 20px rgb(212, 80, 80);
-}
 
 .info{
     display:flex;  
@@ -83,4 +117,76 @@ h1{
 
 #status{
     font-size: 45px;
+}
+
+div > div{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border-radius: 30px;
+    margin: 10px;
+    border: 2px solid black;	
+    transition:all 0.2s;
+    cursor: pointer;
+}
+
+#pad1{
+    background-color: #1FB807;    
+}
+.pad1{  
+    box-shadow: 0px 14px 0px #1BA106;
+}
+.on.pad1{    
+    box-shadow: 0px 4px 0px #1BA106;
+    box-shadow: inset 0px 0px 30px 1px white;
+    top: 10px; 
+}
+
+#pad2{
+    background-color: #E93415;	       
+}
+.pad2{ 
+    box-shadow: 0px 14px 0px #AF2710;
+}
+.on.pad2{  
+    box-shadow: 0px 4px 0px #AF2710;
+    box-shadow: inset 0px 0px 30px 2px white;
+    top: 10px; 
+}
+
+#pad3{
+    background-color: #FCE100;
+}
+.pad3{  
+    box-shadow: 0px 14px 0px #DDC500; 
+}
+.on.pad3{    
+    box-shadow: 0px 4px 0px #DDC500;
+    box-shadow: inset 0px 0px 30px 2px white;
+    top: 10px; 
+}
+
+#pad4{
+    background-color: #1F55DA;
+}
+.pad4{  
+    box-shadow: 0px 14px 0px #1740A4; 
+}
+.on.pad4{    
+    box-shadow: 0px 6px 0px #1740A4;
+    box-shadow: inset 0px 0px 20px 2px white;
+    top: 10px; 
+}
+
+.wrong{
+    box-shadow:
+    0 0 20px 20px rgb(200, 1, 1),
+    0 0 20px 20px rgb(209, 53, 53),
+    0 0 20px 20px rgb(212, 80, 80);
+    box-shadow:
+    inset    
+    0 0 20px 20px rgb(200, 1, 1),
+    0 0 20px 20px rgb(209, 53, 53),
+    0 0 20px 20px rgb(212, 80, 80);
+    border: 2px solid rgb(200, 1, 1);
 }

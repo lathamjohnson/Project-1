@@ -10,15 +10,24 @@
     <title>Simon</title>
 </head>
 <body>
-    <h1>Simon Says</h1>
-    <input id="newGame" type="button" value="New Game">
+    <h1>SIMON</h1>
+    
+    <p class="highScore">High Score:</p>
+    <p class="highScore" id="score"></p>
     <p id="levelCount">Level: 1</p>
 
+    <span id="slideout">
+        <button id="newGame">
+        <span id="game">New Game</span> 
+        <span id="difficulty"><a id="easy">Easy</a> <a id="medium">Medium</a> <a id="hard">Hard</a></span>
+        </button>
+    </span>
+
 <div class="board">
-    <div class="pad" id="pad1" style="trapezoid"></div>
-    <div class="pad" id="pad2"></div>
-    <div class="pad" id="pad3"></div>
-    <div class="pad" id="pad4"></div>
+    <div class="pad pad1" id="pad1"></div>
+    <div class="pad pad2" id="pad2"></div>
+    <div class="pad pad3" id="pad3"></div>
+    <div class="pad pad4" id="pad4"></div>
 </div>
 
 <div class="info">
