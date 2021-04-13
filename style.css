@@ -131,7 +131,7 @@ html{
 }
 
 div > div{
-    position: static;
+    position: relative;
     height: 200px;
     width: 200px;
     border-radius: 20px;
@@ -154,7 +154,7 @@ audio{
 }
 .on.pad1{    
     box-shadow: 0px 4px 0px #1BA106;
-    box-shadow: inset 0px 0px 30px 1px white;
+    box-shadow: inset 0px 0px 20px 1px white;
     top: 10px; 
 }
 
@@ -166,7 +166,7 @@ audio{
 }
 .on.pad2{  
     box-shadow: 0px 4px 0px #AF2710;
-    box-shadow: inset 0px 0px 30px 2px white;
+    box-shadow: inset 0px 0px 20px 1px white;
     top: 10px; 
 }
 
@@ -178,7 +178,7 @@ audio{
 }
 .on.pad3{    
     box-shadow: 0px 4px 0px #DDC500;
-    box-shadow: inset 0px 0px 30px 2px white;
+    box-shadow: inset 0px 0px 20px 1px white;
     top: 10px; 
 }
 
@@ -190,7 +190,7 @@ audio{
 }
 .on.pad4{    
     box-shadow: 0px 6px 0px #1740A4;
-    box-shadow: inset 0px 0px 20px 2px white;
+    box-shadow: inset 0px 0px 20px 1px white;
     top: 10px; 
 }
 

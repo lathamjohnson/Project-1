@@ -22,10 +22,6 @@ score.innerText = document.cookie.substring(10)
 var currentSequence = setInterval(recordPad, 1000, 0)
 clearInterval(currentSequence)
 
-audio.forEach(a => {
-    a.load()
-})
-
 pad.forEach(p => {
     p.addEventListener('click', scorePlayer)
     p.addEventListener('click', animate)
@@ -79,7 +75,7 @@ function animate(pad){
     if(!muted){mp3.play()}
     activate(pad.target)
     setTimeout(deactivate, 150, pad.target)       
-    }
+    } else if(pad.isTrusted){}
     else{
     var mp3 = pad.firstElementChild
     if(!muted){mp3.play()}
@@ -141,7 +137,7 @@ function endGame(){
     score.innerText = document.cookie.substring(10)
     activate(board, 'wrong')
     setStatus('Thats not what simon said...')
-    setTimeout(setStatus, 1500, 'Click above to start a new game')
+    setTimeout(setStatus, 2000, 'Click above to start a new game')
 }
 
 function printInfo(info){
