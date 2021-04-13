@@ -2,15 +2,12 @@ html{
     font-family: 'Londrina Solid', cursive;
     background-color: cornsilk;
 }
-
-
 .title{
     margin: -60px;
     display:flex;
     flex-flow: row wrap;
     justify-content: center;
 }
-
 #mute{
     position:absolute;
     top: 10px;
@@ -24,26 +21,20 @@ html{
     opacity:100%;
     cursor: pointer;
 }
-
 .simon{
     letter-spacing: 40px;
     font-size: 120px;
 }
-
 #score{
     margin-top: 85px;
     font-size: 40px;
 }
-
-
-
 #slideout{
     display: flex;
     justify-content: center;
     position: relative;
     margin: 0 0 35px 0;
 }
-
 #newGame{
     display:flex;
     justify-content: space-around;
@@ -58,21 +49,18 @@ html{
     font-size: 20px;
     transition: width 0.3s;
 }
-
 #difficulty{
    max-width:0;
    white-space: nowrap;
    overflow: hidden;
    transition: max-width 1s;
 }
-
 #game{
     font-size:25px;
     font-weight: bold;
     letter-spacing: 1px;
     margin: 5px;
 }
-
 #difficulty a{
     letter-spacing: 2px;
     margin: 2px;
@@ -80,7 +68,6 @@ html{
     font-weight:bold;
     -webkit-text-stroke:inset 0.6px white;
 }
-
 #easy{
     color:green;
 }
@@ -95,7 +82,6 @@ html{
     max-width:300px;
     color:black;
 }
-
 #levelCount{
     font-size: 35px;
     letter-spacing: 1px;
@@ -103,7 +89,6 @@ html{
     font-weight:bold;
     -webkit-text-stroke:0.8px white;
 }
-
 .board{
     width: 500px;
     height: 500px;
@@ -119,17 +104,13 @@ html{
     box-shadow: 20px 20px 20px #BFBAA5;
     transition: all 0.2s;
 }
-
-
 .info{
     display:flex;  
     justify-content: center;
 }
-
 #status{
     font-size: 50px;
 }
-
 div > div{
     position: relative;
     height: 200px;
@@ -141,11 +122,9 @@ div > div{
     cursor: pointer;
     margin-bottom: 30px;
 }
-
 audio{
     display:none;
 }
-
 #pad1{
     background-color: #1FB807;    
 }
@@ -157,7 +136,6 @@ audio{
     box-shadow: inset 0px 0px 20px 1px white;
     top: 10px; 
 }
-
 #pad2{
     background-color: #E93415;	       
 }
@@ -169,7 +147,6 @@ audio{
     box-shadow: inset 0px 0px 20px 1px white;
     top: 10px; 
 }
-
 #pad3{
     background-color: #FCE100;
 }
@@ -181,7 +158,6 @@ audio{
     box-shadow: inset 0px 0px 20px 1px white;
     top: 10px; 
 }
-
 #pad4{
     background-color: #1F55DA;
 }
@@ -193,21 +169,14 @@ audio{
     box-shadow: inset 0px 0px 20px 1px white;
     top: 10px; 
 }
-
 .wrong{
     box-shadow:
     0 0 20px 20px rgb(200, 1, 1),
     0 0 20px 20px rgb(209, 53, 53),
     0 0 20px 20px rgb(212, 80, 80);
-    /* box-shadow:
-    inset    
-    0 0 20px 20px rgb(200, 1, 1),
-    0 0 20px 20px rgb(209, 53, 53),
-    0 0 20px 20px rgb(212, 80, 80); */
     border: 2px solid rgb(200, 1, 1);
     animation: pulse 2.5s infinite;
 }
-
 @keyframes pulse{
     0%{
     box-shadow:

@@ -4,9 +4,7 @@ const levelCount = document.querySelector('#levelCount')
 const difficulty = document.querySelector('#difficulty')
 const board = document.querySelector('.board')
 const score = document.querySelector('#score')
-const audio = document.querySelectorAll('.mp3')
 const mute = document.querySelector('#mute')
-
 
 var muted = false
 var gameSpeed = 1200
@@ -18,7 +16,6 @@ var computerMove = 0
 var computerString = ''
 
 score.innerText = document.cookie.substring(10)
-
 var currentSequence = setInterval(recordPad, 1000, 0)
 clearInterval(currentSequence)
 
@@ -26,7 +23,6 @@ pad.forEach(p => {
     p.addEventListener('click', scorePlayer)
     p.addEventListener('click', animate)
 })
-
 
 mute.addEventListener('click', checkMute)
 difficulty.addEventListener('click', setSpeed)
@@ -140,11 +136,3 @@ function endGame(){
     setTimeout(setStatus, 2000, 'Click above to start a new game')
 }
 
-function printInfo(info){
-    console.log(info)
-    console.log(`playerMove: ${playerMove}`)
-    console.log(`playerString: ${playerString}`)
-    console.log(`computerMove: ${computerMove}}`)
-    console.log(`computerString: ${computerString}}`)
-    console.log(`Level ${level}`)
-    }

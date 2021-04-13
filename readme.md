@@ -1,4 +1,9 @@
-# SEI-3221 - Project 1
+# SEIR-3221 - Project 1
+#### **Latham Johnson, April 2020**
+<p>
+<p>
+<p>
+
 ## SIMON
 
 ![](assets/simon1.png)
@@ -27,5 +32,5 @@ Development of SIMON began as the basic wireframe above, including five main ele
 - A `button` element, allowing players to start a new game
 - A dynamic readout, displaying relevant information to the user such as level, correct, incorrect, etc.
 
-The 
-
+### Pain Points
+Implementing sound effects presented the largest hurdle in development. When a tile is activated, its sound effect is played by the same `function` that handles its animation. This means that the sound duration is cropped to match the animation time, resulting in choppy and inconsistent sounds at higher difficulties. Instead of removing this functionality completely, I opted to give users the choice by implementing a **mute** button.
