@@ -7,11 +7,8 @@
 ## SIMON
 
 ![](assets/simon1.png)
-### Installation Instructions
-1. Download the project by clicking the green **Code** button above and selecting **Download ZIP**
-2. Extract the contents of **Project-1.zip** to a folder on your computer
-3. Open **index.html** using a web browser 
-4. Good luck!
+#### Click [here](https://lathamjohnson.github.io/Project-1) to play
+
 ____
 
 ## About the Game
