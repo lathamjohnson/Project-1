@@ -2,13 +2,40 @@ html{
     font-family: 'Londrina Solid', cursive;
     background-color: cornsilk;
 }
-h1{
+
+
+.title{
+    margin: -60px;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#mute{
+    position:absolute;
+    top: 10px;
+    left: 10px;
+    height: 40px; 
+    width: 40px;
+    opacity: 40%;
+    transition:all 0.2s;
+}
+#mute:hover{
+    opacity:100%;
+    cursor: pointer;
+}
+
+.simon{
     letter-spacing: 40px;
     font-size: 120px;
-    display: block;
-    text-align: center;
-    margin: 10px 0 10px 40px;
 }
+
+#score{
+    margin-top: 85px;
+    font-size: 40px;
+}
+
+
 
 #slideout{
     display: flex;
@@ -36,15 +63,7 @@ h1{
    max-width:0;
    white-space: nowrap;
    overflow: hidden;
-   transition: max-width 1.5s;
-}
-
-#difficulty a{
-    letter-spacing: 2px;
-    margin: 2px;
-    font-size:24px;
-    font-weight:bold;
-    -webkit-text-stroke: 0.8px black;
+   transition: max-width 1s;
 }
 
 #game{
@@ -54,15 +73,20 @@ h1{
     margin: 5px;
 }
 
+#difficulty a{
+    letter-spacing: 2px;
+    margin: 2px;
+    font-size:23px;
+    font-weight:bold;
+    -webkit-text-stroke:inset 0.6px white;
+}
+
 #easy{
     color:green;
 }
-
 #medium{
-    color:orange;
+    color:goldenrod;
 }
-
-
 #hard{
     color:red;
 }
@@ -73,25 +97,11 @@ h1{
 }
 
 #levelCount{
-    display: block;
-    position: absolute;
     font-size: 35px;
-    top:0;
-    right:20px;
-}
-
-.highScore{
-    display: block;
-    position: absolute;
-    font-size: 25px;
-    text-align: center;
-    top:0;
-    left:20px;
-}
-
-#score{
-    top: 30px;
-    left: 60px;
+    letter-spacing: 1px;
+    margin: -5px auto -50px auto;
+    font-weight:bold;
+    -webkit-text-stroke:0.8px white;
 }
 
 .board{
@@ -103,10 +113,11 @@ h1{
     background-color:#DFD9C1;
     margin: 0 auto;
     align-content: space-evenly;
-    padding: 30px;
+    padding: 25px 25px 50px 25px;
     border: 3px solid black;
     border-radius: 50px;
     box-shadow: 20px 20px 20px #BFBAA5;
+    transition: all 0.2s;
 }
 
 
@@ -116,18 +127,23 @@ h1{
 }
 
 #status{
-    font-size: 45px;
+    font-size: 50px;
 }
 
 div > div{
-    position: relative;
+    position: static;
     height: 200px;
     width: 200px;
-    border-radius: 30px;
-    margin: 10px;
+    border-radius: 20px;
+    margin: 20px;
     border: 2px solid black;	
     transition:all 0.2s;
     cursor: pointer;
+    margin-bottom: 30px;
+}
+
+audio{
+    display:none;
 }
 
 #pad1{
@@ -183,10 +199,35 @@ div > div{
     0 0 20px 20px rgb(200, 1, 1),
     0 0 20px 20px rgb(209, 53, 53),
     0 0 20px 20px rgb(212, 80, 80);
-    box-shadow:
+    /* box-shadow:
     inset    
     0 0 20px 20px rgb(200, 1, 1),
     0 0 20px 20px rgb(209, 53, 53),
-    0 0 20px 20px rgb(212, 80, 80);
+    0 0 20px 20px rgb(212, 80, 80); */
     border: 2px solid rgb(200, 1, 1);
+    animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+    0%{
+    box-shadow:
+    0 0 2px 2px rgb(200, 1, 1),
+    0 0 2px 2px rgb(209, 53, 53),
+    0 0 2px 2px rgb(212, 80, 80);
+    }
+
+    50%{
+    box-shadow:
+    0 0 15px 15px rgb(200, 1, 1),
+    0 0 15px 15px rgb(209, 53, 53),
+    0 0 15px 15px rgb(212, 80, 80);
+    }
+
+    100%{
+    box-shadow:
+    0 0 2px 2px rgb(200, 1, 1),
+    0 0 2px 2px rgb(209, 53, 53),
+    0 0 2px 2px rgb(212, 80, 80);
+    }
+
 }

@@ -10,11 +10,12 @@
     <title>Simon</title>
 </head>
 <body>
-    <h1>SIMON</h1>
+    <span class="title">
+        <h1 class="simon">SIMON</h1>
+        <h1 id="score"></h1>
+    </span>
     
-    <p class="highScore">High Score:</p>
-    <p class="highScore" id="score"></p>
-    <p id="levelCount">Level: 1</p>
+    <img id="mute" src="/assets/unmuted.png"> 
 
     <span id="slideout">
         <button id="newGame">
@@ -24,10 +25,19 @@
     </span>
 
 <div class="board">
-    <div class="pad pad1" id="pad1"></div>
-    <div class="pad pad2" id="pad2"></div>
-    <div class="pad pad3" id="pad3"></div>
-    <div class="pad pad4" id="pad4"></div>
+    <div class="pad pad1" id="pad1">
+        <audio class="mp3" src="/assets/note1.mp3"></audio>
+    </div>
+    <div class="pad pad2" id="pad2">
+        <audio class="mp3" src="/assets/note2.mp3"></audio>
+    </div>
+    <div class="pad pad3" id="pad3">
+        <audio class="mp3" src="/assets/note3.mp3"></audio>
+    </div>    
+    <div class="pad pad4" id="pad4">
+        <audio class="mp3" src="/assets/note4.mp3"></audio>
+    </div>
+    <p id="levelCount">.  .  .  .</p>
 </div>
 
 <div class="info">

@@ -1,9 +1,14 @@
-var pad = document.querySelectorAll('.pad')
+const pad = document.querySelectorAll('.pad')
 const newGame = document.querySelector('#newGame')
 const levelCount = document.querySelector('#levelCount')
 const difficulty = document.querySelector('#difficulty')
 const board = document.querySelector('.board')
 const score = document.querySelector('#score')
+const audio = document.querySelectorAll('.mp3')
+const mute = document.querySelector('#mute')
+
+
+var muted = false
 var gameSpeed = 1200
 var recording = true
 var level = 1
@@ -17,12 +22,17 @@ score.innerText = document.cookie.substring(10)
 var currentSequence = setInterval(recordPad, 1000, 0)
 clearInterval(currentSequence)
 
+audio.forEach(a => {
+    a.load()
+})
+
 pad.forEach(p => {
     p.addEventListener('click', scorePlayer)
     p.addEventListener('click', animate)
 })
 
 
+mute.addEventListener('click', checkMute)
 difficulty.addEventListener('click', setSpeed)
 newGame.addEventListener('click', startSequence)
 
@@ -36,27 +46,43 @@ function rankScore(cookie){
 }
 
 function setSpeed(e){
-    if(e.target.id == 'easy'){gameSpeed = 1200}
-    else if(e.target.id == 'medium'){gameSpeed = 600}
-    else if(e.target.id == 'hard'){gameSpeed = 300}
+    if(e.target.id == 'easy'){gameSpeed = 1200; levelCount.style.color='green'}
+    else if(e.target.id == 'medium'){gameSpeed = 600; levelCount.style.color='goldenrod'}
+    else if(e.target.id == 'hard'){gameSpeed = 300; levelCount.style.color='red'}
     else{return}
 }
 
 function startSequence(click=false){
     if(click){reset(1)}
-    currentSequence = setInterval(recordPad, gameSpeed)
+    setStatus('Watch...')
+    setTimeout(function(){currentSequence = setInterval(recordPad, gameSpeed)}, 300)
+    
 }
 
 function setStatus(message){document.querySelector('#status').innerHTML = message}
 function activate(pad, status='on'){pad.classList.add(status)}
 function deactivate(pad, status='on'){pad.classList.remove(status)}
 
+function checkMute(){
+    if(muted){muted=false; mute.src='/assets/unmuted.png'}
+    else{muted=true; mute.src='/assets/muted.png'}
+}
+
+function playSound (element){
+    element.style.display = 'block'
+    setTimeout(element.style.display = 'none', .500)
+}
+
 function animate(pad){
     if(pad.isTrusted && recording == false){
-    activate(pad.toElement)
-    setTimeout(deactivate, 150, pad.toElement)       
+    var mp3 = pad.target.firstElementChild
+    if(!muted){mp3.play()}
+    activate(pad.target)
+    setTimeout(deactivate, 150, pad.target)       
     }
     else{
+    var mp3 = pad.firstElementChild
+    if(!muted){mp3.play()}
     activate(pad)
     setTimeout(deactivate, (gameSpeed/2), pad)
     }
@@ -65,16 +91,17 @@ function animate(pad){
 function scorePlayer(e){
     if(recording){return}
     else{
-    playerString += e.toElement.id.charAt(3)
+    playerString += e.target.id.charAt(3)
     if(playerString.charAt(playerMove) !== computerString.charAt(playerMove)){
         rankScore(`highscore=${level-1}`)
         endGame()
     }
     else if(playerString === computerString){
         setStatus('Correct! Next level...')
-        reset(++level)
-        levelCount.innerText = `Level: ${level}`
-        startSequence()
+        setTimeout(function(){
+            reset(++level)
+            startSequence()
+        }, 1000)
     }
     else{
     playerMove ++
@@ -90,7 +117,6 @@ function recordPad(){
     }
     else{
     recording = true
-    setStatus('Listen...')
     const n = Math.floor((Math.random() * 4) + 1)
     const pad = document.querySelector(`#pad${n}`)
     animate(pad)
@@ -100,14 +126,14 @@ function recordPad(){
 }
 
 function reset(l){
-    console.log(document.cookie)
+    clearInterval(currentSequence)
     playerMove = 0
     playerString = ''
     computerMove = 0
     computerString = ''
     level = l
     deactivate(board, 'wrong')
-    levelCount.innerText = `Level: ${level}`
+    levelCount.innerText = `Level ${level}`
 }
 
 function endGame(){
@@ -124,5 +150,5 @@ function printInfo(info){
     console.log(`playerString: ${playerString}`)
     console.log(`computerMove: ${computerMove}}`)
     console.log(`computerString: ${computerString}}`)
-    console.log(`Level: ${level}`)
+    console.log(`Level ${level}`)
     }
