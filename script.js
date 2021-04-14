@@ -56,8 +56,8 @@ function activate(pad, status='on'){pad.classList.add(status)}
 function deactivate(pad, status='on'){pad.classList.remove(status)}
 
 function checkMute(){
-    if(muted){muted=false; mute.src='Project-1/assets/unmuted.png'}
-    else{muted=true; mute.src='Project-1/assets/muted.png'}
+    if(muted){muted=false; mute.src='assets/unmuted.png'}
+    else{muted=true; mute.src='assets/muted.png'}
 }
 
 function playSound (element){
